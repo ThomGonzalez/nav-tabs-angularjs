@@ -3,17 +3,29 @@
 <head>
 	<title>tabs</title>
 	<link rel="stylesheet" href="css/bootstrap.css" />
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/angular.v1.3.15.min.js"></script>
 	<script src="js/controller.js"></script>
-	
+
+
 </head>
 <body>
  <div ng-app="app" ng-controller="tabController"> 
- 	
+	<ul class="nav nav-tabs" id="mytab">
+        <li ng-repeat="name in listNames"  ng-class="{active: $index == 0}">
+          <a href="#tab{{$index + 1}}" data-toggle="tab">names {{$index + 1}}</a>
+        </li>
+     </ul>
+      
+    <div class="tab-content">
+        <div class="tab-pane fade in" id="tab{{$index + 1}}" ng-repeat="name in listNames">
+          <p>{{$index + 1}}</p>
+        </div>
+    </div>
  </div>
-
- <button type="button" class="btn btn-primary">Primary</button>
+ <br>
+ <button type="button" class="btn btn-primary">Siguiente</button>
 
 </body>
 </html>
